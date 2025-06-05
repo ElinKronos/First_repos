@@ -1,19 +1,21 @@
+# Here begins a new world...
 
-from datetime import datetime
+import math
+from log import log_info, log_warning, log_error
 
-print("Hello world!")
+def calculate_squere_root(numbers: list) -> None:
+    for num in numbers:
+        try:
+            if num < 0:
+                log_warning(f"Знайдено від'ємне число: {num}. Пропускаємо.")
+                continue
 
-now = datetime.now()
+            root = math.sqrt(num)
+            log_info(f"Квадратний корінь з {num} = {root:.2f}")
+        
+        except Exception as e:
+            log_error(f"Помилка при обчисленні кореня для {num}: {e}")
 
-format_date = now.strftime("%Y-%m-%d %H:%M:%S")
-print(format_date)
-
-format_date_only = now.strftime("%A, %d %B %Y")
-print(format_date_only)
-
-format_time_only = now.strftime("%I:%M %p")
-print(format_time_only)
-
-format_date_2 = now.strftime("%d.%m.%Y")
-print(format_date_2)
-
+if __name__ == "__main__":
+    numbers = [16, -4, 9, 25, 0, 4, "16"]
+    calculate_squere_root(numbers)

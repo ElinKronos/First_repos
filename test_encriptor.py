@@ -9,6 +9,6 @@ def text_to_binary(text):
         binary_list.append(binary_code)
     return ' '.join(binary_list)
 
-message = "NYX"
+message = "My heart belongs to you 💛"
 binary_message = text_to_binary(message)
 print(binary_message)
